@@ -3,8 +3,73 @@
 :root{
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 500;
+    font-size: 9px;
 }
 
 body{
     background-color: #EAE8FE;;
+}
+
+header{
+    text-align: center;
+    margin-bottom: 67px;
+}
+
+.vend-logo{
+    width: 386px;
+    height: 180px;
+}
+
+.vend-cont{
+    display: flex;
+    justify-content: center;
+}
+
+.wrap-left, .wrap-right {
+    width: 360px;
+    height: 545px;
+    background-color: #fff;
+    margin-bottom: 171px;
+    padding: 31px 27px 28px;
+}
+section + section {
+    margin-left: 28px;
+}
+
+.cola-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.cola-list img{
+    display: block;
+    margin: 0 auto 6px;
+    width: 36px;
+    height: 65px;
+}
+
+.cola-list button{
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 12px 9px;
+    /* box-sizing: border-box; */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.cola-list button:focus {
+    outline: 3px solid #6327FE;
+}
+
+.btn-price{
+    display: inline-block;
+    background-color: #6327FE;
+    border-radius: 50px;
+    margin: 7px auto 0;
+    padding: 5px 15px;
+    width: 70px;
+    font-size: 12px;
+    box-sizing: border-box;
+    color: #fff;
 }
