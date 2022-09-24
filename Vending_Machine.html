@@ -25,6 +25,9 @@
                     </button>
                 </li>
                 <li>
+                    <div class="sold-out">
+                        <img src="images/Sold-out.png" alt="품절">
+                    </div>
                     <button type="button">
                         <img src="images/Violet_Cola.png" alt="Violet_Cola">
                         Violet_Cola
@@ -60,39 +63,87 @@
                     </button>
                 </li> 
             </ul>
-            <div>
-                <p>잔액</p>
-                <span id="change">1,000원</span>
+            <div class="take-info-wrap">
+                <div class="money-info changes-status">
+                    <strong>잔액 :</strong> <!-- p태그 넣었다가 뭐 넣어야할지 모르겠어서 중요내용 같아서 이렇게 넣었습니다 -->
+                    <span id="change" class="">1,000원</span>
+                </div>
+                <button class="btn-money change" type="button">거스름돈 반환</button>
+                <input  class="money-info input" type="text" placeholder="입금액 입력">
+                <button class="btn-money payment" type="button">입금</button>
+                <ul class="list-take-cola">
+                    <li>
+                        <div>
+                            <img src="images/Original_Cola.png" alt="">
+                            <p>Original_Cola</p>
+                        </div>
+                        <span>1</span>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="images/Green_Cola.png" alt="">
+                            <p>Green_Cola</p>
+                        </div>
+                        <span>2</span>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="images/Orange_Cola.png" alt="">
+                            <p>Orange_Cola</p>
+                        </div>
+                        <span>1</span>
+                    </li>
+                </ul>
+                <button class="btn-take" type="button">획득</button>
             </div>
-            <button type="button">거스름돈 반환</button>
-            <input type="text" placeholder="입금액 입력">
-            <button type="button">입금</button>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li> <!-- 오버플로우 줘야함 -->
-            </ul>
-            <button type="button">획득</button>
         </section>
         <section class="wrap-right">
             <h2 class="sr-only">음료 획득 정보</h2>
-            <div>
-                <h3>소지금</h3>
-                <span id="budget">25,000원</span>
+            <div class="budget-wrap">
+                <div class="title-budget">
+                    <strong>소지금 : </strong>
+                    <span id="budget">25,000원</span>
+                </div>
             </div>
-            <h3>획득한 금액</h3>
-            <p></p> 
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-            <div>
-                <h3>총금액</h3>
-                <span id="total">9,000원</span>
+            <div class="right-list-wrap">
+                <strong class="title-get-cola">획득한 음료</strong>
+                <ul class="list-take-cola-big">
+                    <li>
+                        <div>
+                            <img src="images/Original_Cola.png" alt="">
+                            <p>Original_Cola</p>
+                        </div>
+                        <span>1</span>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="images/Green_Cola.png" alt="">
+                            <p>Green_Cola</p>
+                        </div>
+                        <span>2</span>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="images/Orange_Cola.png" alt="">
+                            <p>Orange_Cola</p>
+                        </div>
+                        <span>1</span>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="images/Violet_Cola.png" alt="">
+                            <p>Violet_Cola</p>
+                        </div>
+                        <span>5</span>
+                    </li>
+                </ul>
+                <div class="take-cola-total">
+                    <strong>총금액 </strong>
+                    <span id="total">9,000원</span>
+                </div>
             </div>
         </section>
     </main>
+    
 </body>
 </html>

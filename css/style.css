@@ -25,21 +25,25 @@ header{
     justify-content: center;
 }
 
-.wrap-left, .wrap-right {
+.wrap-left/* , .wrap-right */ {
     width: 360px;
     height: 545px;
     background-color: #fff;
     margin-bottom: 171px;
     padding: 31px 27px 28px;
+    box-sizing: border-box;
 }
+
 section + section {
     margin-left: 28px;
 }
 
+/* 벤딩머신 안 품목 */
 .cola-list{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 12px;
+    margin-bottom: 20px;
 }
 
 .cola-list img{
@@ -55,7 +59,7 @@ section + section {
     border-radius: 10px;
     padding: 11px 12px 9px;
     /* box-sizing: border-box; */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 .cola-list button:focus {
@@ -72,4 +76,224 @@ section + section {
     font-size: 12px;
     box-sizing: border-box;
     color: #fff;
+}
+
+.take-info-wrap{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.money-info { /* 가운데 정렬 해야함 */
+    width: 200px;
+    height:32px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.money-info.changes-status{
+    display: flex;
+    justify-content: space-between;
+    padding: 6.5px 10px;
+    background-color: #EAE8FE;
+    border: none;
+    font-size: 14px;
+}
+.money-info.input{
+    padding-left: 6px;
+    border: 1px solid #BDBDBD;
+}
+
+::placeholder{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.btn-money{
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.list-take-cola{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 106px;
+    padding: 12px 12px 0 ;
+    border-radius: 5px;
+    background-color: #EAE8FE;
+    border: 1px solid #BDBDBD;
+    overflow: scroll;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.list-take-cola li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 170px;
+    padding: 6.5px 8px 6.5px 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.list-take-cola li + li{
+    margin-top: 6px;
+}
+.list-take-cola li img,
+.list-take-cola-big li img{
+    width: 18px;
+    height: 33px;
+}
+
+.list-take-cola li span,
+.list-take-cola-big li span {
+    font-size: 14px;
+    border: 1px solid #BDBDBD;
+    width: 30px;
+    height: 30px;
+    padding: 6px 11px 6px;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+}
+.list-take-cola li p,
+.list-take-cola-big li p{
+    display: inline-block;
+    font-size: 9px;
+    margin-left: 10px;
+    line-height: 33px;
+    vertical-align: top;
+}
+.list-take-cola::-webkit-scrollbar, 
+.list-take-cola-big::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+.list-take-cola::-webkit-scrollbar-thumb,
+.list-take-cola-big::-webkit-scrollbar {
+    height: 79px;
+    background-color: #fff;
+    border-radius: 50px;
+    background-clip: padding-box;
+    border: 4px solid #fff;
+}
+.list-take-cola::-webkit-scrollbar-track,
+.list-take-cola-big::-webkit-scrollbar  {
+    background-color: #EAE8FE;
+}
+
+.btn-take{
+    background-color: #6327FE;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 오른쪽 구간 */
+.budget-wrap{
+    width: 360px;
+    height: 50px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 9px 27px;
+    box-sizing: border-box;
+}
+.title-budget{
+    display: flex;
+    justify-content: space-between;
+    width: 306px;
+    height: 32px;
+    background-color: #EAE8FE;
+    border-radius: 5px;
+    padding: 6px 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.title-budget span{
+    font-weight: 700;
+}
+
+.right-list-wrap{
+    width: 360px;
+    height: 475px;
+    background-color: #fff;
+    padding: 25px 27px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.list-take-cola-big{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 306px;
+    height: 364px;
+    margin: 13px 0 11px;
+    padding: 12px 12px 0 ;
+    border-radius: 5px;
+    background-color: #EAE8FE;
+    border: 1px solid #BDBDBD;
+    overflow: scroll;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.list-take-cola-big li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 170px;
+    padding: 6.5px 10px 6.5px 10px;
+    box-sizing: border-box;
+    width: 276px;
+    height: 46px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.list-take-cola-big li+li{
+    margin-top: 6px;
+}
+
+.title-get-cola{
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+.take-cola-total{
+    text-align: right;
+    font-size: 12px;
+}
+
+.sold-out{
+    width: 94px;
+    height: 130px;
+    background-color: black;
+    border-radius: 10px;
+    opacity: 0.8;
+    padding: 49px 16px 39px; 
+    box-sizing: border-box;
+    z-index: 10;
+    position: absolute;
+}
+.sold-out img {
+    width: 57px;
+    height: 44px;
+    
 }

@@ -57,3 +57,7 @@ button {
     padding: 0;
     font: inherit;
 }
+
+input{
+    padding: 0;
+}
