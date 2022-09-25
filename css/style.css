@@ -38,6 +38,7 @@ section + section {
     margin-left: 28px;
 }
 
+/* 왼쪽구간 */
 /* 벤딩머신 안 품목 */
 .cola-list{
     display: grid;
@@ -58,13 +59,13 @@ section + section {
     border: none;
     border-radius: 10px;
     padding: 11px 12px 9px;
-    /* box-sizing: border-box; */
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 .cola-list button:focus,
 .cola-list button:hover {
     outline: 3px solid #6327FE;
+    border-radius: 10px;
 }
 
 button{
@@ -282,22 +283,25 @@ button{
     font-size: 12px;
 }
 
+/* 품절 */
 .sold-out{
     width: 94px;
     height: 130px;
-    background-color: black;
-    border-radius: 10px;
-    opacity: 0.8;
-    padding: 49px 16px 39px; 
-    box-sizing: border-box;
-    z-index: 10;
     position: absolute;
 }
-.sold-out img {
-    width: 57px;
-    height: 44px;
-}
 
+.sold-out::after {
+    content: ' ';
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    background: url('../images/Sold-out.png') no-repeat center/ 57px 44px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+/* 반응형 페이지 */
 @media screen and (max-width:834px) {
     body{
         background-color: #fff;
