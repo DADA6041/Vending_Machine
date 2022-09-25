@@ -62,8 +62,13 @@ section + section {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
-.cola-list button:focus {
+.cola-list button:focus,
+.cola-list button:hover {
     outline: 3px solid #6327FE;
+}
+
+button{
+    cursor: pointer;
 }
 
 .btn-price{
@@ -85,7 +90,7 @@ section + section {
     font-size: 13px;
 }
 
-.money-info { /* 가운데 정렬 해야함 */
+.money-info {
     width: 200px;
     height:32px;
     border-radius: 5px;
@@ -95,6 +100,7 @@ section + section {
 .money-info.changes-status{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 6.5px 10px;
     background-color: #EAE8FE;
     border: none;
@@ -152,11 +158,14 @@ section + section {
 
 .list-take-cola li span,
 .list-take-cola-big li span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 14px;
     border: 1px solid #BDBDBD;
     width: 30px;
     height: 30px;
-    padding: 6px 11px 6px;
+    /* padding: 6px 11px 6px; */
     box-sizing: border-box;
     border-radius: 5px;
 
@@ -171,19 +180,19 @@ section + section {
 }
 .list-take-cola::-webkit-scrollbar, 
 .list-take-cola-big::-webkit-scrollbar {
-    width: 8px;
-    background-color: transparent;
+    width: 12px;
+    background-color: #EAE8FE;
 }
 .list-take-cola::-webkit-scrollbar-thumb,
-.list-take-cola-big::-webkit-scrollbar {
-    height: 79px;
+.list-take-cola-big::-webkit-scrollbar-thumb {
+
     background-color: #fff;
     border-radius: 50px;
     background-clip: padding-box;
-    border: 4px solid #fff;
+    border: 4px solid #EAE8FE;
 }
 .list-take-cola::-webkit-scrollbar-track,
-.list-take-cola-big::-webkit-scrollbar  {
+.list-take-cola-big::-webkit-scrollbar-track {
     background-color: #EAE8FE;
 }
 
@@ -207,6 +216,7 @@ section + section {
 .title-budget{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 306px;
     height: 32px;
     background-color: #EAE8FE;
@@ -267,15 +277,6 @@ section + section {
     line-height: 20px;
 }
 
-
-
-
-
-
-
-
-
-
 .take-cola-total{
     text-align: right;
     font-size: 12px;
@@ -295,5 +296,32 @@ section + section {
 .sold-out img {
     width: 57px;
     height: 44px;
+}
+
+@media screen and (max-width:834px) {
+    body{
+        background-color: #fff;
+    }
+    header{
+        margin-bottom: 0;
+    }
     
+    .vend-logo{
+        width: 166px;
+        height: 78px;
+    }
+    .vend-cont{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    section + section {
+        margin: 0;
+    }
+    .wrap-left{
+        margin-bottom: 0;
+    }
+    .budget-wrap{
+        margin-bottom: 0;
+    }
 }
