@@ -62,8 +62,7 @@ section + section {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
-.cola-list button:focus,
-.cola-list button:hover {
+.cola-list button:active {
     outline: 3px solid #6327FE;
     border-radius: 10px;
 }
@@ -284,20 +283,19 @@ button{
 }
 
 /* 품절 */
-.sold-out{
+.wrap-left .cola-list li.sold-out{
     width: 94px;
     height: 130px;
-    position: absolute;
 }
-
-.sold-out::after {
-    content: ' ';
+.wrap-left .cola-list li.sold-out::before {
+    content: '';
     display: block;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     position: absolute;
+    z-index: 1;
     background: url('../images/Sold-out.png') no-repeat center/ 57px 44px rgba(0, 0, 0, 0.8);
     border-radius: 10px;
 }
