@@ -7,323 +7,239 @@
 }
 
 body{
-    background-color: #EAE8FE;;
+    background-color: #EAE8FE;
+}
+button {
+    cursor: pointer;
 }
 
-header{
-    text-align: center;
-    margin-bottom: 67px;
-}
-
-.vend-logo{
-    width: 386px;
-    height: 180px;
-}
-
-.vend-cont{
-    display: flex;
+#container{
+    display:  flex;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 0 28px;
+    padding-top: 247px;
+    margin-bottom: 50px;
 }
 
-.wrap-left/* , .wrap-right */ {
-    width: 360px;
-    height: 545px;
+#container .img-header{
+    position: absolute;
+    width: 386px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.img-header .vend-logo{
+    width: 100%;
+}
+
+/* 왼쪽 오른쪽 공동 */
+#container .wrap-vend,
+#container .wrap-info {
+    flex-basis: 360px;
     background-color: #fff;
-    margin-bottom: 171px;
-    padding: 31px 27px 28px;
-    box-sizing: border-box;
 }
-
-section + section {
-    margin-left: 28px;
-}
-
 /* 왼쪽구간 */
+#container .wrap-vend{
+    padding: 31px 27px 28px;
+}
+
 /* 벤딩머신 안 품목 */
-.cola-list{
+.wrap-vend .cola-list{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 12px;
-    margin-bottom: 20px;
 }
 
-.cola-list img{
+.wrap-vend .cola-list li{
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+.wrap-vend .cola-list li.sold-out{
+    pointer-events: none;
+}
+.wrap-vend .cola-list li.sold-out::before {
+    content: '';
+    position: absolute;
+    border-radius: 10px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: no-repeat center/60px 46px url(/images/Sold-out.png) rgba(0, 0, 0, 0.8);
+}
+
+.wrap-vend .cola-list .btn-item{
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    padding: 11px 12px 9px;
+}
+
+.wrap-vend .cola-list .btn-item:active{
+    border-radius: 10px;
+    outline: 3px solid #6327FE;
+}
+
+.cola-list .btn-item .btn-price{
     display: block;
-    margin: 0 auto 6px;
+    padding: 5px 15px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #fff;
+    background-color: #6327FE;
+    border-radius: 50px;
+}
+.cola-list .btn-item .img-item{
     width: 36px;
     height: 65px;
 }
 
-.cola-list button{
-    background-color: #fff;
-    border: none;
-    border-radius: 10px;
-    padding: 11px 12px 9px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+.cola-list .btn-item .txt-item{
+    display: block;
+    margin: 6px 0 7px;
 }
 
-.cola-list button:active {
-    outline: 3px solid #6327FE;
-    border-radius: 10px;
-}
-
-button{
-    cursor: pointer;
-}
-
-.btn-price{
-    display: inline-block;
-    background-color: #6327FE;
-    border-radius: 50px;
-    margin: 7px auto 0;
-    padding: 5px 15px;
-    width: 70px;
-    font-size: 12px;
-    box-sizing: border-box;
-    color: #fff;
-}
-
-.take-info-wrap{
+/* 벤딩머신 버튼 */
+.take-info-wrap {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 12px;
+    margin-top: 20px;
+}
+.take-info-wrap .money-info, 
+.take-info-wrap .money-input,
+.take-info-wrap .btn-money,
+.take-info-wrap .btn-put-money, 
+.take-info-wrap .btn-take {
     font-size: 13px;
-}
-
-.money-info {
-    width: 200px;
-    height:32px;
     border-radius: 5px;
-    box-sizing: border-box;
 }
 
-.money-info.changes-status{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6.5px 10px;
+.take-info-wrap .money-info {
+    padding: 6px 10px;
+    line-height: 20px;
     background-color: #EAE8FE;
-    border: none;
-    font-size: 14px;
 }
-.money-info.input{
-    padding-left: 6px;
-    border: 1px solid #BDBDBD;
+.take-info-wrap .txt-changes {
+    float: right;
 }
 
-::placeholder{
+.take-info-wrap .money-input{
+    padding: 7px 6px;
+}
+
+.take-info-wrap .money-input::placeholder{
+    color: #BDBDBD;
     font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
 }
-
-.btn-money{
-    background-color: #fff;
+.take-info-wrap .btn-money,
+.take-info-wrap .btn-put-money,
+.take-info-wrap .btn-take{
     border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+.take-info-wrap .btn-take{
+    background-color: #6327FE;
 }
 
+/* 획득리스트 */
 .list-take-cola{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 200px;
     height: 106px;
-    padding: 12px 12px 0 ;
+    overflow-y: scroll;
+    padding: 12px;
+    border: 1px solid #BDBDBD;
     border-radius: 5px;
     background-color: #EAE8FE;
-    border: 1px solid #BDBDBD;
-    overflow: scroll;
-    overflow-x: hidden;
-    box-sizing: border-box;
 }
 
-.list-take-cola li{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 170px;
-    padding: 6.5px 8px 6.5px 10px;
-    box-sizing: border-box;
+.list-take-cola li {
     border-radius: 5px;
     background-color: #fff;
+    overflow:hidden;
 }
-.list-take-cola li + li{
-    margin-top: 6px;
+.right-list-wrap .list-take-cola li {
+    padding: 6px 10px;
 }
-.list-take-cola li img,
-.list-take-cola-big li img{
-    width: 18px;
+
+.take-info-wrap .list-take-cola button {
+    border: none;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 6px 10px;
+    width: 100%;
+}
+.list-take-cola .img-item,
+.list-take-cola .txt-item{
+    float: left;
+}
+.list-take-cola .img-item {
+    width:18px;
     height: 33px;
 }
-
-.list-take-cola li span,
-.list-take-cola-big li span {
+.list-take-cola .txt-item{
+    margin-left: 10px;
+    line-height: 33px;
+}
+.list-take-cola .num-counter{
+    float: right;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 14px;
+    align-items: center;
     border: 1px solid #BDBDBD;
     width: 30px;
     height: 30px;
-    /* padding: 6px 11px 6px; */
-    box-sizing: border-box;
+    line-height: 14px;
+    font-size: 14px;
     border-radius: 5px;
-
-}
-.list-take-cola li p,
-.list-take-cola-big li p{
-    display: inline-block;
-    font-size: 9px;
-    margin-left: 10px;
-    line-height: 33px;
-    vertical-align: top;
-}
-.list-take-cola::-webkit-scrollbar, 
-.list-take-cola-big::-webkit-scrollbar {
-    width: 12px;
-    background-color: #EAE8FE;
-}
-.list-take-cola::-webkit-scrollbar-thumb,
-.list-take-cola-big::-webkit-scrollbar-thumb {
-
-    background-color: #fff;
-    border-radius: 50px;
-    background-clip: padding-box;
-    border: 4px solid #EAE8FE;
-}
-.list-take-cola::-webkit-scrollbar-track,
-.list-take-cola-big::-webkit-scrollbar-track {
-    background-color: #EAE8FE;
-}
-
-.btn-take{
-    background-color: #6327FE;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 /* 오른쪽 구간 */
-.budget-wrap{
-    width: 360px;
-    height: 50px;
-    background-color: #fff;
-    margin-bottom: 20px;
-    padding: 9px 27px;
-    box-sizing: border-box;
+#container .wrap-info {
+    background-color: transparent;
 }
-.title-budget{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 306px;
-    height: 32px;
+.wrap-info .budget-wrap{
+    padding: 9px 27px; 
+    background-color: #fff;
+}
+.budget-wrap .title-budget{
+    padding: 6px 10px;
     background-color: #EAE8FE;
     border-radius: 5px;
-    padding: 6px 10px;
     font-size: 14px;
-    box-sizing: border-box;
+    line-height: 20px;
 }
-.title-budget span{
+.title-budget #budget{
+    float: right;
     font-weight: 700;
 }
 
 .right-list-wrap{
-    width: 360px;
-    height: 475px;
+    margin-top: 20px;
     background-color: #fff;
     padding: 25px 27px;
-    box-sizing: border-box;
-    text-align: center;
 }
-
-.list-take-cola-big{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 306px;
-    height: 364px;
-    margin: 13px 0 11px;
-    padding: 12px 12px 0 ;
-    border-radius: 5px;
-    background-color: #EAE8FE;
-    border: 1px solid #BDBDBD;
-    overflow: scroll;
-    overflow-x: hidden;
-    box-sizing: border-box;
-}
-
-.list-take-cola-big li{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 170px;
-    padding: 6.5px 10px 6.5px 10px;
-    box-sizing: border-box;
-    width: 276px;
-    height: 46px;
-    background-color: #fff;
-    border-radius: 5px;
-}
-
-.list-take-cola-big li+li{
-    margin-top: 6px;
-}
-
-.title-get-cola{
+.right-list-wrap .title-get-cola{
+    display: block;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 700px;
     line-height: 20px;
+    text-align: center;
+    margin-bottom: 13px;
 }
 
-.take-cola-total{
+.right-list-wrap .list-take-cola{
+    height: 370px;
+}
+.right-list-wrap .txt-total{
+    display: block;
+    margin-top: 6px;
     text-align: right;
     font-size: 12px;
-}
-
-/* 품절 */
-.wrap-left .cola-list li.sold-out{
-    width: 94px;
-    height: 130px;
-}
-.wrap-left .cola-list li.sold-out::before {
-    content: '';
-    display: block;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    position: absolute;
-    z-index: 1;
-    background: url('../images/Sold-out.png') no-repeat center/ 57px 44px rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
+    line-height: 17px;
 }
 /* 반응형 페이지 */
-@media screen and (max-width:834px) {
-    body{
-        background-color: #fff;
-    }
-    header{
-        margin-bottom: 0;
-    }
-    
-    .vend-logo{
-        width: 166px;
-        height: 78px;
-    }
-    .vend-cont{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    section + section {
-        margin: 0;
-    }
-    .wrap-left{
-        margin-bottom: 0;
-    }
-    .budget-wrap{
-        margin-bottom: 0;
-    }
-}
