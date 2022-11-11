@@ -16,7 +16,13 @@ const budget = document.querySelector('#budget'); // 소지금
 * 반환 버튼을 누르면 잔액 창은 초기화됩니다.
 */
 function getChange(){
-    console.log('거스름돈 반환');
+    const leftMoneyVal = parseInt(leftVal.textContent.replaceAll(',','')); // 잔액
+    const budgetVal = parseInt(budget.textContent.replaceAll(',','')); // 소지금
+    // console.log(leftMoneyVal, budgetVal);
+
+    budget.textContent = new Intl.NumberFormat().format(budgetVal + leftMoneyVal) + ' 원';
+
+    leftVal.textContent = '0 원';
 }
 
 /** 입금하기
@@ -33,6 +39,8 @@ function inpMoney(event){
     if(inpMoneyVal <= budgetVal && inpMoneyVal > 0){
         budget.textContent = new Intl.NumberFormat().format(budgetVal - inpMoneyVal) + ' 원';
         leftVal.textContent = new Intl.NumberFormat().format(leftMoneyVal + inpMoneyVal) + ' 원';
+    } else if(isNaN(inpMoneyVal)) {
+        alert('입금액을 입력해 주세요!! :)');
     } else {
         alert('소지금이 부족합니다!! :)');
     }
