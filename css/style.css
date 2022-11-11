@@ -242,4 +242,19 @@ button {
     font-size: 12px;
     line-height: 17px;
 }
+
 /* 반응형 페이지 */
+@media only screen and (min-width: 320px) and (max-width:480px) and (-webkit-min-device-pixel-ratio:2){
+    body{
+        background-color: #fff;
+    }
+    #container{
+        padding-top: 96px;
+    }
+    #container .img-header{
+        width: 166px;
+    }
+    .take-info-wrap .money-input::placeholder{
+        text-align: right;
+    }
+}
