@@ -45,9 +45,53 @@ async function colaFactory(data) {
         docFrag.appendChild(itemLi);
     });
     itemList.appendChild(docFrag);
+    selectItem(itemList); // 장바구니 담기 함수로 넘겨줌
 }
 
 colaFactory();
+
+/*
+* 자판기 메뉴 기능
+* 아이템을 누르면 잔액 == 잔액 - 아이템 가격이 됩니다.
+* 아이템 가격보다 잔액이 적다면 "잔액이 부족합니다. 돈을 입금해주세요" 경고창이 나타납니다.
+* 아이템이 획득가능 창에 등록됩니다.
+* 아이템 버튼의 data-count 값이 -1 됩니다.
+* 만약 data-count 값이 0 이라면 부모 li에 sold-out 클래스를 붙여줍니다.
+*/
+function selectItem(itemList){
+    const selectBtn = itemList.querySelectorAll('button');
+    // console.log(selectBtn);
+    selectBtn.forEach((item) => {
+        item.addEventListener('click', (e) =>{
+            const targetEl = e.currentTarget;
+            // console.log(targetEl);
+            const leftMoneyVal = parseInt(leftVal.textContent.replaceAll(',','')); // 잔액
+            const targetElCost = parseInt(targetEl.dataset.cost); // 타겟의 가격 데이터
+            // console.log(targetElCost);
+            const basketList = smallColaList.querySelectorAll('li'); // 장바구니 li들
+            let isExist = false; // 아이템이 이미 있나?
+
+            if(leftMoneyVal >= targetElCost){
+                leftVal.textContent = new Intl.NumberFormat().format(leftMoneyVal - targetElCost) + '원';
+
+                //장바구니를 돌면서 list에 있으면 num-counter만 증가
+                for(const item of basketList){
+                    if(item.dataset.name === targetEl.dataset.name){
+                        item.querySelector('.num-counter').textContent++;
+                        isExist = true;
+                        break;
+                    }
+                }
+
+                if(!isExist){
+                    addBasketList(targetEl);
+                }
+            } else {
+                alert('잔액이 부족합니다!! :)')
+            }
+        })
+    })
+}
 
 /*
 * 거스름돈 반환
@@ -65,7 +109,7 @@ function getChange(){
 }
 
 /** 입금하기
-* 1. 입금액을 입력하고 입금 버튼을 누르면 소지금 == 소지금 - 입금액, 잔액 == 기존 잔액 + 입금액이 됩니다.
+* 입금액을 입력하고 입금 버튼을 누르면 소지금 == 소지금 - 입금액, 잔액 == 기존 잔액 + 입금액이 됩니다.
 * 입금액이 소지금 보다 많다면 실행을 중단하고 "소지금이 부족합니다." 라고 쓰인 경고창을 띄웁니다.
 * 입금액 인풋창은 초기화됩니다
 */
@@ -87,7 +131,7 @@ function inpMoney(event){
 }
 
 
-/**  2. 음료 획득하기
+/** 음료 획득하기
 * 획득 버튼을 누르면 선택한 음료수 목록이 획득한 음료 목록으로 이동합니다.
 * 획득한 음료의 금액을 모두 합하여 총금액을 업데이트 합니다.
 */
@@ -95,21 +139,25 @@ function getItem(){
     console.log('음료획득');
 }
 
+// 장바구니에 list 붙이는 함수
+function addBasketList(target){
+    // console.log(target);
+    const getList = document.createElement('li');
+    getList.dataset.name = target.dataset.name;
+    getList.innerHTML = `
+        <button type="button" class="btn-staged">
+            <img src="images/${target.dataset.img}" alt="" class="img-item">
+            <strong class="txt-item">${target.dataset.name}</strong>
+            <span class="num-counter">1</span>
+        </button>
+    `;
+    smallColaList.appendChild(getList);
+}
 
-/*
-* 3. 자판기 메뉴 기능
-* 아이템을 누르면 잔액 == 잔액 - 아이템 가격이 됩니다.
-* 아이템 가격보다 잔액이 적다면 "잔액이 부족합니다. 돈을 입금해주세요" 경고창이 나타납니다.
-* 아이템이 획득가능 창에 등록됩니다.
-* 아이템 버튼의 data-count 값이 -1 됩니다.
-* 만약 data-count 값이 0 이라면 부모 li에 sold-out 클래스를 붙여줍니다.
-*/
-itemBtn.forEach((item) => {
-    item.addEventListener('click', (e) =>{
-        const targetEl = e.currentTarget;
-        console.log(targetEl)
-    })
-})
+
+
+
+
 
 
 
