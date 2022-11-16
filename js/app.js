@@ -44,11 +44,11 @@ async function colaFactory(data) {
         itemLi.innerHTML = liTemplate;
         docFrag.appendChild(itemLi);
     });
-    itemList.appendChild(docFrag);
-    selectItem(itemList); // 장바구니 담기 함수로 넘겨줌
-}
-
-colaFactory();
+    itemList.appendChild(docFrag); 
+    selectItem(itemList); 
+    // 장바구니 담기 함수로 넘겨줌
+} 
+colaFactory(); 
 
 /*
 * 자판기 메뉴 기능
@@ -86,12 +86,37 @@ function selectItem(itemList){
                 if(!isExist){
                     addBasketList(targetEl);
                 }
+
+                targetEl.dataset.count--;
+                // console.log(targetEl.dataset.count);
+                if (targetEl.dataset.count == 0) {
+                    // console.log(targetEl.parentNode);
+                    targetEl.parentNode.classList.add('sold-out');
+                    alert('상품이 품절되었습니다! :)');
+                }
             } else {
                 alert('잔액이 부족합니다!! :)')
             }
         })
     })
 }
+
+// 장바구니에 list 붙이는 함수
+function addBasketList(target){
+    // console.log(target);
+    const getList = document.createElement('li');
+    getList.dataset.name = target.dataset.name;
+    getList.innerHTML = `
+        <button type="button" class="btn-staged">
+            <img src="images/${target.dataset.img}" alt="" class="img-item">
+            <strong class="txt-item">${target.dataset.name}</strong>
+            <span class="num-counter">1</span>
+        </button>
+    `;
+    smallColaList.appendChild(getList);
+}
+
+
 
 /*
 * 거스름돈 반환
@@ -107,7 +132,6 @@ function getChange(){
 
     leftVal.textContent = '0 원';
 }
-
 /** 입금하기
 * 입금액을 입력하고 입금 버튼을 누르면 소지금 == 소지금 - 입금액, 잔액 == 기존 잔액 + 입금액이 됩니다.
 * 입금액이 소지금 보다 많다면 실행을 중단하고 "소지금이 부족합니다." 라고 쓰인 경고창을 띄웁니다.
@@ -139,20 +163,6 @@ function getItem(){
     console.log('음료획득');
 }
 
-// 장바구니에 list 붙이는 함수
-function addBasketList(target){
-    // console.log(target);
-    const getList = document.createElement('li');
-    getList.dataset.name = target.dataset.name;
-    getList.innerHTML = `
-        <button type="button" class="btn-staged">
-            <img src="images/${target.dataset.img}" alt="" class="img-item">
-            <strong class="txt-item">${target.dataset.name}</strong>
-            <span class="num-counter">1</span>
-        </button>
-    `;
-    smallColaList.appendChild(getList);
-}
 
 
 
