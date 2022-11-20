@@ -12,6 +12,7 @@ const btnTake = vendingMachine.querySelector('.btn-take'); // 획득버튼
 const myInfo = document.querySelector('.wrap-info');
 const budget = myInfo.querySelector('#budget'); // 소지금
 const purchaseList = myInfo.querySelector('.list-take-cola'); // 구매한 물건
+const txtTotal = myInfo.querySelector('.txt-total'); // 총금액
 
 // 콜라 데이터 불러오기
 
@@ -107,6 +108,7 @@ function addBasketList(target){
     // console.log(target);
     const getList = document.createElement('li');
     getList.dataset.name = target.dataset.name;
+    getList.dataset.cost = target.dataset.cost;
     getList.innerHTML = `
         <button type="button" class="btn-staged">
             <img src="images/${target.dataset.img}" alt="" class="img-item">
@@ -182,6 +184,14 @@ btnTake.addEventListener('click', (e) => {
         }
     }
     smallColaList.innerHTML = null;
+
+    const getTotal = purchaseList.querySelectorAll('li');
+    getTotal.forEach((item) =>{
+        // console.log(item.dataset.cost);
+        totalSum += item.dataset.cost * parseInt(item.querySelector('.num-counter').textContent);
+        // console.log(totalSum);
+    })
+    txtTotal.textContent = `총금액 : ${new Intl.NumberFormat().format(totalSum)}원`;
 });
 
 btnChange.addEventListener('click', getChange);
