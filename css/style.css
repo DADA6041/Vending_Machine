@@ -68,7 +68,7 @@ button {
     right: 0;
     bottom: 0;
     left: 0;
-    background: no-repeat center/60px 46px url(/images/Sold-out.png) rgba(0, 0, 0, 0.8);
+    background: no-repeat center/60px 46px url(../images/Sold-out.png) rgba(0, 0, 0, 0.8);
 }
 
 .wrap-vend .cola-list .btn-item{
@@ -161,22 +161,25 @@ button {
 .list-take-cola li {
     border-radius: 5px;
     background-color: #fff;
-    overflow:hidden;
 }
-.right-list-wrap .list-take-cola li {
-    padding: 6px 10px;
-}
+
 .list-take-cola li + li {
     margin-top: 6px;
 }
 
-.take-info-wrap .list-take-cola button {
+.list-take-cola button {
     border: 1px solid #BDBDBD;
     background-color: #fff;
     border-radius: 5px;
     padding: 6px 10px;
     width: 100%;
 }
+
+.right-list-wrap .list-take-cola button {
+    pointer-events: none;
+    border: none;
+}
+
 .list-take-cola .img-item,
 .list-take-cola .txt-item{
     float: left;

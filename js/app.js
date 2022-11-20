@@ -10,7 +10,8 @@ const btnInput = vendingMachine.querySelector('.btn-put-money'); // 입금버튼
 const btnTake = vendingMachine.querySelector('.btn-take'); // 획득버튼
 
 const myInfo = document.querySelector('.wrap-info');
-const budget = document.querySelector('#budget'); // 소지금
+const budget = myInfo.querySelector('#budget'); // 소지금
+const purchaseList = myInfo.querySelector('.list-take-cola'); // 구매한 물건
 
 // 콜라 데이터 불러오기
 
@@ -116,8 +117,6 @@ function addBasketList(target){
     smallColaList.appendChild(getList);
 }
 
-
-
 /*
 * 거스름돈 반환
 * 반환 버튼을 누르면 소지금 == 소지금 + 잔액이 됩니다.
@@ -159,21 +158,33 @@ function inpMoney(event){
 * 획득 버튼을 누르면 선택한 음료수 목록이 획득한 음료 목록으로 이동합니다.
 * 획득한 음료의 금액을 모두 합하여 총금액을 업데이트 합니다.
 */
-function getItem(){
-    console.log('음료획득');
-}
 
+btnTake.addEventListener('click', (e) => {
+    let isPurchase = false;
+    let totalSum = 0;
 
+    const selectedItem = smallColaList.querySelectorAll('li');
+    const purchaseItem = purchaseList.querySelectorAll('li');
 
-
-
-
-
-
-
-
+    for (let selected of selectedItem){
+        // console.log(selected);
+        for(let purchase of purchaseItem){
+            let purchaseVal = purchase.querySelector('.num-counter');
+            if (selected.dataset.name === purchase.dataset.name) {
+                purchaseVal.textContent = parseInt(purchaseVal.textContent) + parseInt(selected.querySelector('.num-counter').textContent);
+                isPurchase = true;
+                break;
+            }
+        }
+        if(!isPurchase) {
+            // console.log(selected);
+            purchaseList.appendChild(selected);
+        }
+    }
+    smallColaList.innerHTML = null;
+});
 
 btnChange.addEventListener('click', getChange);
 btnInput.addEventListener('click', inpMoney);
-btnTake.addEventListener('click', getItem);
+
 
